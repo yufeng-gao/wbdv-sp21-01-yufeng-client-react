@@ -29,7 +29,7 @@ const CourseCard = ({
                         value={newTitle}
                         className="form-control"/>}
                     <p className="class-text">Some quick example text.</p>
-                    <Link to="/editor" className="btn btn-primary">
+                    <Link to="/courses/editor" className="btn btn-primary">
                         {course.title}
                     </Link>
                 </div>

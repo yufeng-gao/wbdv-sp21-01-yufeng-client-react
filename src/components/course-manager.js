@@ -3,6 +3,7 @@
 import React, {useState} from 'react';
 import CourseTable from "./course-table";
 import CourseGrid from "./course-grid";
+import CourseEditor from "./course-editor"
 import {Link, Route} from "react-router-dom";
 import courseService from "../services/course-service";
 import './course-manager.css'

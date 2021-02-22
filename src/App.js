@@ -8,11 +8,13 @@ import Home from "./components/home";
 function App() {
   return (
     <BrowserRouter>
-          <div className="container-fluid">
-          <Route path="/" exact={true}  component={Home}/>
-          <Route path="/courses" component={CourseManager}/>
-          <Route path="/editor" exact={true} render={(props) => <CourseEditor {...props}/>}/>
-          </div>
+      <div className="container-fluid">
+        <Route path="/" exact={true} component={Home} />
+        <Route path="/courses" component={CourseManager} />
+        <Route path="/courses/editor"
+          render={(props) => <CourseEditor history={props.history} />}>
+        </Route>
+      </div>
     </BrowserRouter>
   );
 }
