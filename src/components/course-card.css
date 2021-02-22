@@ -1,0 +1,21 @@
+.wbdv-bottom-right{
+    bottom: 5px;
+    right: 5px;
+    z-index: 1;
+    position: absolute;
+}
+
+.wbdv-top-right{
+    top: 5px;
+    right: 5px;
+    z-index: 1;
+    position: absolute;
+}
+
+.wbdv-check-mark{
+    color: green;
+}
+
+.wbdv-cross-mark{
+    color: red;
+}
