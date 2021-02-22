@@ -1,6 +1,6 @@
-//citation: the update, delete and add course follows the jannunzi repo functions
+//citation: the update, delete and add course functions use the jannunzi repo functions
 //citation: the render portion uses some html from assignment 2 submission
-import React from 'react';
+import React, {useState} from 'react';
 import CourseTable from "./course-table";
 import CourseGrid from "./course-grid";
 import {Link, Route} from "react-router-dom";
@@ -9,8 +9,10 @@ import './course-manager.css'
 
 export default class CourseManager
     extends React.Component {
+
     state = {
-        courses: []
+        courses: [],
+        newTitle: ""
     }
 
     componentDidMount() {
@@ -20,7 +22,7 @@ export default class CourseManager
 
     addCourse = () => {
         const newCourse = {
-            title: "New Course",
+            title: this.state.newTitle === "" ? "New Course" : this.state.newTitle,
             owner: "New Owner",
             lastModified: "Never"
         }
@@ -31,8 +33,18 @@ export default class CourseManager
                     courses: [
                         ...prevState.courses,
                         course
-                    ]
+                    ],
+                    newTitle: ""    
                 })))
+    }
+
+    setNewTitle = (t) => {
+        this.setState(
+            (prevState) => ({
+                ...prevState,
+                newTitle: t
+            }
+        ))
     }
 
     deleteCourse = (course) => {
@@ -68,13 +80,22 @@ export default class CourseManager
                             <h4>Course Manager</h4>
                         </div>
                         <div className="col-8 col-lg-5">
-                            <input className="form-control"/>
+                            <input className="form-control"
+                                value={this.state.newTitle}
+                                onChange={(event) => this.setNewTitle(event.target.value)}/>
                         </div>
                         <div className="col-2">
-                            <i className="fas fa-2x fa-plus-circle"></i>
+                            <i className="fas fa-2x fa-plus-circle"
+                                onClick={this.addCourse}></i>
                         </div>
                     </div>
                 </div>
+
+                <div className="wbdv-sticky-bottom-right">
+                    <i className="fas fa-2x fa-plus-circle"
+                        onClick={this.addCourse}></i>
+                </div>
+
                 <div className="wbdv-padding-nav-bar">
                     <Route path="/courses/table" exact={true} >
                         <CourseTable

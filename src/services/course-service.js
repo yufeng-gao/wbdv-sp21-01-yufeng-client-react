@@ -5,7 +5,7 @@ export const createCourse = (course) =>
         method: 'POST',
         body: JSON.stringify(course),
         headers: {
-            'content-shape': 'application/json'
+            'content-type': 'application/json'
         }
     }).then(response => response.json())
 

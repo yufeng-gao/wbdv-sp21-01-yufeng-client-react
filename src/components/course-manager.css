@@ -4,9 +4,15 @@
     position:fixed;
     width: 100%;
     z-index:1;
-    overflow:hidden;
 }
 
 .wbdv-padding-nav-bar{
     padding-top:100px;
+}
+
+.wbdv-sticky-bottom-right{
+    position:fixed;
+    z-index:1;
+    bottom: 30px;
+    right: 30px;
 }
