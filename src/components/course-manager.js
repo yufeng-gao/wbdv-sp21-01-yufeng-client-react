@@ -98,7 +98,7 @@ export default class CourseManager
 
                 <div className="wbdv-padding-nav-bar">
                     <Route path="/courses/table" exact={true} >
-                        <CourseTable
+                        <CourseTable updateCourse={this.updateCourse}
                           deleteCourse={this.deleteCourse}
                           courses={this.state.courses}/>
                     </Route>
