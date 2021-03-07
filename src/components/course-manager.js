@@ -1,9 +1,9 @@
 //citation: the update, delete and add course functions use the jannunzi repo functions
 //citation: the render portion uses some html from assignment 2 submission
 import React, {useState} from 'react';
-import CourseTable from "./course-table";
-import CourseGrid from "./course-grid";
-import CourseEditor from "./course-editor"
+import CourseTable from "./course-table/course-table";
+import CourseGrid from "./course-grid/course-grid";
+import CourseEditor from "./course-editor/course-editor.js"
 import {Link, Route} from "react-router-dom";
 import courseService from "../services/course-service";
 import './course-manager.css'

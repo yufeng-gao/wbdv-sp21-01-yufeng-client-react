@@ -1,7 +1,7 @@
 //citation: code from jannunzi git repo
 import './App.css';
 import CourseManager from "./components/course-manager.js";
-import CourseEditor from "./components/course-editor";
+import CourseEditor from "./components/course-editor/course-editor.js";
 import {BrowserRouter, Route} from "react-router-dom";
 import Home from "./components/home";
 
