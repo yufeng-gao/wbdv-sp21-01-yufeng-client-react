@@ -10,7 +10,8 @@ function App() {
     <BrowserRouter>
       <div className="container-fluid">
         <Route path="/" exact={true} component={Home} />
-        <Route path="/courses" component={CourseManager} />
+        <Route path="/courses/table" exact={true} component={CourseManager} />
+        <Route path="/courses/grid" exact={true} component={CourseManager} />
         <Route path="/courses/editor"
           render={(props) => <CourseEditor history={props.history} />}>
         </Route>
