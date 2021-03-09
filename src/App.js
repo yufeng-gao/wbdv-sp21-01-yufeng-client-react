@@ -20,7 +20,7 @@ function App() {
           "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId"
         ]}
           exact={true}
-          render={(props) => <CourseEditor {...props} />} />
+          render={(props) => <CourseEditor history={props.history} />} />
       </div>
     </BrowserRouter>
   );
