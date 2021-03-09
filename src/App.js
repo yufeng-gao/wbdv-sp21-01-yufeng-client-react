@@ -12,9 +12,15 @@ function App() {
         <Route path="/" exact={true} component={Home} />
         <Route path="/courses/table" exact={true} component={CourseManager} />
         <Route path="/courses/grid" exact={true} component={CourseManager} />
-        <Route path="/courses/editor"
-          render={(props) => <CourseEditor history={props.history} />}>
-        </Route>
+        {/* <Route path="/courses/editor"
+          render={(props) => <CourseEditor history={props.history} />}/> */}
+        <Route path={[
+          "/courses/:layout/edit/:courseId",
+          "/courses/:layout/edit/:courseId/modules/:moduleId",
+          "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId"
+        ]}
+          exact={true}
+          render={(props) => <CourseEditor {...props} />} />
       </div>
     </BrowserRouter>
   );
