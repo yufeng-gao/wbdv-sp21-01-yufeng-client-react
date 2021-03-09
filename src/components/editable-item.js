@@ -1,7 +1,7 @@
 //citation: copied directly from jannunzi git repo
-//citation: piazza
+//citation: piazza post: https://piazza.com/class/kjvqxk70cd71y3?cid=692 for highlighting, posted by: Idekelly
 import React, {useState} from 'react'
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 
 const EditableItem = (
     {
@@ -13,6 +13,7 @@ const EditableItem = (
     }) => {
     const [editing, setEditing] = useState(false)
     const [itemCache, setItemCache] = useState(item)
+    const { layout, courseId, moduleId } = useParams();
     return(
         <li className={`${type === 'module'? 'list-group-item' : 'nav-item'} 
         ${(item._id === moduleId) ? 'active' : ''}
