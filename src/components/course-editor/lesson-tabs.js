@@ -17,23 +17,21 @@ const LessonTabs = (
         findLessonsForModule(moduleId)
     }, [])
     return(
-        <div>
-            <ul class="nav nav-tabs">
-                {
-                    lessons.map(lesson =>
-                        <EditableItem
-                            to={`/courses/${layout}/edit/${courseId}/modules/${module._id}/lessons/${lesson._id}`}
-                            deleteItem={deleteLesson}
-                            updateItem={updateLesson}
-                            item={lesson}
-                            type='lesson' />
-                    )
-                }
-                <li className="nav-item">
-                    <i onClick={() => createLesson(moduleId)} className="fas fa-plus fa-2x"></i>
-                </li>
-            </ul>
-        </div>
+        <ul class="nav nav-tabs">
+            {
+                lessons.map(lesson =>
+                    <EditableItem
+                        to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
+                        deleteItem={deleteLesson}
+                        updateItem={updateLesson}
+                        item={lesson}
+                        type='lesson' />
+                )
+            }
+            <li className="nav-item">
+                <i onClick={() => createLesson(moduleId)} className="fas fa-plus fa-2x"></i>
+            </li>
+        </ul>
     )
 }
 

@@ -1,5 +1,5 @@
 const initialState = {
-    lesson: [
+    lessons: [
         {title: 'placeholder', _id: '123'},
         {title: 'fake lesson', _id: '234'}
     ],
