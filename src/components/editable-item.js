@@ -1,4 +1,5 @@
 //citation: copied directly from jannunzi git repo
+//citation: piazza
 import React, {useState} from 'react'
 import {Link} from "react-router-dom";
 
@@ -7,12 +8,15 @@ const EditableItem = (
         to,
         item,
         updateItem,
-        deleteItem
+        deleteItem,
+        type
     }) => {
     const [editing, setEditing] = useState(false)
     const [itemCache, setItemCache] = useState(item)
     return(
-        <>
+        <li className={`${type === 'module'? 'list-group-item' : 'nav-item'} 
+        ${(item._id === moduleId) ? 'active' : ''}
+        ${(editing && type === 'module') ? 'active' : ''}`}>
             {
                 !editing &&
                 <>
@@ -35,7 +39,7 @@ const EditableItem = (
                     <i onClick={() => deleteItem(item)} className="fas fa-times"></i>
                 </>
             }
-        </>
+        </li>
     )
 }
 
