@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react'
 import {connect, Provider} from "react-redux";
-import EditableItem from "./editable-item";
+import EditableItem from "../editable-item";
 import {useParams} from "react-router-dom";
-import topicService from "../services/topic-service"
+import topicService from "../../services/topic-service"
 
 const TopicPills = (
     {
@@ -12,12 +12,12 @@ const TopicPills = (
         updateTopic,
         deleteTopic
     }) => {
-    const { layout, courseId, moduleId, lessonId } = useParams();
+    const {layout, courseId, moduleId, lessonId, topicId} = useParams();
     useEffect(() => {
         findTopicsForLesson(lessonId)
-    }, [])
+    }, [lessonId])
     return (
-        <ul class="nav nav-pills">
+        <ul className="nav nav-pills">
             {
                 topics.map(topic =>
                     <EditableItem

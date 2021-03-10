@@ -13,23 +13,26 @@ const EditableItem = (
     }) => {
     const [editing, setEditing] = useState(false)
     const [itemCache, setItemCache] = useState(item)
-    const { layout, courseId, moduleId } = useParams();
+    const { layout, courseId, moduleId, lessonId, topicId } = useParams();
     return(
         <li className={`${type === 'module'? 'list-group-item' : 'nav-item'} 
         ${(item._id === moduleId) ? 'active' : ''}
         ${(editing && type === 'module') ? 'active' : ''}`}>
             {
                 !editing &&
-                <>
-                    <Link to={to}>
+                <span>
+                    <Link
+                        className={`${type === 'module' ? '' : 'nav-link'} 
+                    ${(item._id === lessonId || item._id === topicId) ? 'active' : ''}`}
+                        to={to}>
                         {item.title}
                     </Link>
                     <i onClick={() => setEditing(true)} className="fas fa-edit"></i>
-                </>
+                </span>
             }
             {
                 editing &&
-                <>
+                <span className={`${type === 'module'? '' : 'nav-link active'}`}>
                     <input
                         onChange={(e) => setItemCache({...item, title: e.target.value})}
                         value={itemCache.title}/>
@@ -37,8 +40,10 @@ const EditableItem = (
                         setEditing(false)
                         updateItem(itemCache)
                     }} className="fas fa-check"></i>
-                    <i onClick={() => deleteItem(item)} className="fas fa-times"></i>
-                </>
+                    <i onClick={() => {
+                        setEditing(false)
+                        deleteItem(item)}} className="fas fa-times"></i>
+                </span>
             }
         </li>
     )

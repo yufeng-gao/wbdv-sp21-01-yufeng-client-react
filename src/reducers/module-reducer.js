@@ -1,10 +1,6 @@
 //citation: code from jannuzi git repo.
 const initialState = {
-    modules: [
-        {title: 'placeholder', _id: '123'},
-        {title: 'fake module', _id: '234'}
-    ],
-    other: 111
+    modules: []
 }
 
 const moduleReducer = (state = initialState, action) => {

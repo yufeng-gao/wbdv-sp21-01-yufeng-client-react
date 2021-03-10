@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react'
 import {connect, Provider} from "react-redux";
-import EditableItem from "./editable-item";
+import EditableItem from "../editable-item";
 import {useParams} from "react-router-dom";
-import lessonService from "../services/lesson-service"
+import lessonService from "../../services/lesson-service"
 
 const LessonTabs = (
     {
@@ -15,9 +15,9 @@ const LessonTabs = (
     const {layout, courseId, moduleId, lessonId} = useParams();
     useEffect(() => {
         findLessonsForModule(moduleId)
-    }, [])
+    }, [moduleId])
     return(
-        <ul class="nav nav-tabs">
+        <ul className="nav nav-tabs">
             {
                 lessons.map(lesson =>
                     <EditableItem
@@ -28,9 +28,6 @@ const LessonTabs = (
                         type='lesson' />
                 )
             }
-            <li className="nav-item">
-                <i onClick={() => createLesson(moduleId)} className="fas fa-plus fa-2x"></i>
-            </li>
         </ul>
     )
 }

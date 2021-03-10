@@ -1,9 +1,5 @@
 const initialState = {
-    topics: [
-        {title: 'placeholder', _id: '123'},
-        {title: 'fake lesson', _id: '234'}
-    ],
-    other: 111
+    topics: []
 }
 
 const topicReducer = (state=initialState, action) => {
@@ -35,7 +31,7 @@ const topicReducer = (state=initialState, action) => {
         case "DELETE_TOPIC":
             return {
                 ...state,
-                lessons: state.topics.filter(topic => {
+                topics: state.topics.filter(topic => {
                     if (topic._id !== action.topicToDelete._id) {
                         return true
                     } else {

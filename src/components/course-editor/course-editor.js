@@ -1,8 +1,8 @@
 import React from 'react'
 import {Link, useParams} from "react-router-dom";
-import moduleReducer from "../reducers/module-reducer";
-import lessonReducer from "../reducers/lesson-reducer";
-import topicReducer from "../reducers/topic-reducer";
+import moduleReducer from "../../reducers/module-reducer";
+import lessonReducer from "../../reducers/lesson-reducer";
+import topicReducer from "../../reducers/topic-reducer";
 import {combineReducers, createStore} from "redux";
 import {Provider} from "react-redux";
 import ModuleList from "./module-list";
@@ -21,12 +21,12 @@ const CourseEditor = ({history}) => {
     const {layout, courseId} = useParams();
     return(
         <Provider store={store}>
-            <div class="row">
-                <div class="col-3">
+            <div className="row">
+                <div className="col-3">
                     <h4>Course Editor</h4>
                 </div>
-                <div class="col-1">
-                    <i class="fa fa-window-close fa-2x"
+                <div className="col-1">
+                    <i className="fa fa-window-close fa-2x"
                         onClick={() => history.goBack()}></i>
                 </div>
             </div>
