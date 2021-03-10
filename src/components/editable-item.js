@@ -2,6 +2,7 @@
 //citation: piazza post: https://piazza.com/class/kjvqxk70cd71y3?cid=692 for highlighting, posted by: Idekelly
 import React, {useState} from 'react'
 import {Link, useParams} from "react-router-dom";
+import "./editable-item.css"
 
 const EditableItem = (
     {
@@ -20,11 +21,10 @@ const EditableItem = (
         ${(editing && type === 'module') ? 'active' : ''}`}>
             {
                 !editing &&
-                <span>
-                    <Link
-                        className={`${type === 'module' ? '' : 'nav-link'} 
-                    ${(item._id === lessonId || item._id === topicId) ? 'active' : ''}`}
-                        to={to}>
+                <span className={`${type === 'module' ? '' : 'nav-link'} 
+                ${(item._id === lessonId || item._id === topicId) ? 'active' : ''}`}>
+                    <Link to={to}
+                    className={`${(item._id === moduleId || item._id === topicId) ? 'active wbdv-selected-link' : ''}`}>
                         {item.title}
                     </Link>
                     <i onClick={() => setEditing(true)} className="fas fa-edit"></i>

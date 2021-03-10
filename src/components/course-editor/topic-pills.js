@@ -29,7 +29,7 @@ const TopicPills = (
                 )
             }
             <li className="nav-item">
-                <i onClick={() => createTopic(lessonId)} className="fas fa-plus fa-2x"></i>
+                <i onClick={() => createTopic(topicId)} className="fas fa-plus fa-2x"></i>
             </li>
         </ul>
     )

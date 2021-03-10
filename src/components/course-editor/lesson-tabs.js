@@ -28,6 +28,9 @@ const LessonTabs = (
                         type='lesson' />
                 )
             }
+            <li className="nav-item">
+                <i onClick={() => createLesson(moduleId)} className="fas fa-plus fa-2x"></i>
+            </li>
         </ul>
     )
 }
