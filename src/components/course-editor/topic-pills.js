@@ -25,11 +25,12 @@ const TopicPills = (
                         deleteItem={deleteTopic}
                         updateItem={updateTopic}
                         item={topic}
-                        type='topic' />
+                        type='topic'
+                        id={topic._id} />
                 )
             }
-            <li className="nav-item">
-                <i onClick={() => createTopic(topicId)} className="fas fa-plus fa-2x"></i>
+            <li className="nav-item" key="ADD_TOPIC">
+                <i onClick={() => createTopic(lessonId)} className="fas fa-plus fa-2x"></i>
             </li>
         </ul>
     )

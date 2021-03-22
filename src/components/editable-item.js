@@ -10,7 +10,8 @@ const EditableItem = (
         item,
         updateItem,
         deleteItem,
-        type
+        type,
+        id
     }) => {
     const [editing, setEditing] = useState(false)
     const [itemCache, setItemCache] = useState(item)
@@ -18,7 +19,8 @@ const EditableItem = (
     return(
         <li className={`${type === 'module'? 'list-group-item' : 'nav-item'} 
         ${(item._id === moduleId) ? 'active' : ''}
-        ${(editing && type === 'module') ? 'active' : ''}`}>
+        ${(editing && type === 'module') ? 'active' : ''}`}
+        key={id}>
             {
                 !editing &&
                 <span className={`${type === 'module' ? '' : 'nav-link'} 

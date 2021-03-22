@@ -25,10 +25,11 @@ const LessonTabs = (
                         deleteItem={deleteLesson}
                         updateItem={updateLesson}
                         item={lesson}
-                        type='lesson' />
+                        type='lesson'
+                        id={lesson._id} />
                 )
             }
-            <li className="nav-item">
+            <li className="nav-item" key="ADD_LESSON">
                 <i onClick={() => createLesson(moduleId)} className="fas fa-plus fa-2x"></i>
             </li>
         </ul>

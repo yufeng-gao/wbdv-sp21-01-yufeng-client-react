@@ -34,10 +34,11 @@ const ModuleList = (
                             deleteItem={deleteModule}
                             updateItem={updateModule}
                             item={module}
-                            type='module' />                 
+                            type='module'
+                            id={module._id} />                 
                     )
                 }
-                <li className="list-group-item">
+                <li className="list-group-item" key="ADD_MODULE">
                     <i onClick={() => createModule(courseId)} className="fas fa-plus fa-2x"></i>
                 </li>
             </ul>
