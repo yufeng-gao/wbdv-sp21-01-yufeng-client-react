@@ -3,8 +3,9 @@ import {connect} from "react-redux";
 import {useParams} from "react-router-dom";
 import HeadingWidget from "./heading-widget";
 import ParagraphWidget from "./paragraph-widget";
+import ListWidget from "./list-widget";
+import ImageWidget from "./image-widget";
 import widgetService from "../../services/widget-service.js"
-import topicReducer from '../../reducers/topic-reducer';
 
 const WidgetList = (
     {
@@ -36,6 +37,20 @@ const WidgetList = (
                             {
                                 widget.type === "PARAGRAPH" &&
                                 <ParagraphWidget
+                                    updateWidget={updateWidget}
+                                    deleteWidget={deleteWidget}
+                                    widget={widget} />
+                            }
+                            {
+                                widget.type === "LIST" &&
+                                <ListWidget
+                                    updateWidget={updateWidget}
+                                    deleteWidget={deleteWidget}
+                                    widget={widget} />
+                            }
+                            {
+                                widget.type === "IMAGE" &&
+                                <ImageWidget
                                     updateWidget={updateWidget}
                                     deleteWidget={deleteWidget}
                                     widget={widget} />
@@ -79,7 +94,9 @@ const dtpm = (dispatch) => ({
             cssClass: "",
             style: "",
             value: "",
-            topicId: topicId})
+            ordered: false,
+            topicId: topicId
+        })
             .then(widget => dispatch({type: "CREATE_WIDGET", widget: widget}))
     },
     findWidgetsForTopic: (topicId) => {
