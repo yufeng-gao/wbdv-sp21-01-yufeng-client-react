@@ -18,8 +18,8 @@ const ImageWidget = (
                             value={widgetCache.type} className="form-control">
                             <option value={"HEADING"}>Heading</option>
                             <option value={"PARAGRAPH"}>Paragraph</option>
-                            <option value={"LIST"}>Paragraph</option>
-                            <option value={"IMAGE"}>Paragraph</option>
+                            <option value={"LIST"}>List</option>
+                            <option value={"IMAGE"}>Image</option>
                         </select>
                         <i onClick={() => {
                             setEditing(false)
@@ -91,6 +91,7 @@ const ImageWidget = (
                 {
                     !editing &&
                     <>
+                        <i onClick={() => setEditing(true)} className="fas fa-2x fa-cog float-right"></i>
                         <img src={widget.src} width={widget.width} height={widget.height}></img>
                     </>
                 }

@@ -13,8 +13,9 @@ const ListWidget = (
                 {
                     !editing &&
                         <>
+                        <i onClick={() => setEditing(true)} className="fas fa-2x fa-cog float-right"></i>
                             {
-                                widget.ordered &&
+                                (widget.ordered === 1) &&
                                 <ol>
                                     {
                                         widget.text.split("\n").map(item => {
@@ -26,7 +27,7 @@ const ListWidget = (
                                 </ol>
                             }
                             {
-                                !widget.ordered &&
+                                (widget.ordered !== 1) &&
                                 <ul>
                                     {
                                         widget.text.split("\n").map(item => {
@@ -47,8 +48,8 @@ const ListWidget = (
                             value={widgetCache.type} className="form-control">
                             <option value={"HEADING"}>Heading</option>
                             <option value={"PARAGRAPH"}>Paragraph</option>
-                            <option value={"LIST"}>Paragraph</option>
-                            <option value={"IMAGE"}>Paragraph</option>
+                            <option value={"LIST"}>List</option>
+                            <option value={"IMAGE"}>Image</option>
                         </select>
                         <i onClick={() => {
                             setEditing(false)
