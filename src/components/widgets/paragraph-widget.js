@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 const HeadingWidget = (
     {
@@ -8,7 +8,7 @@ const HeadingWidget = (
     }) => {
     const [editing, setEditing] = useState(false)
     const [widgetCache, setWidgetCache] = useState(widget)
-    return(
+    return (
         <>
             {
                 editing &&
@@ -61,8 +61,8 @@ const HeadingWidget = (
                 (editing && widgetCache.type === "LIST") &&
                 <div>
                     <input type="checkbox"
-                        onChange={(e) => setWidgetCache({ ...widgetCache, ordered: e.target.checked ? 1 : 0 })}
-                        checked={widgetCache.ordered === 1}
+                        onChange={(e) => setWidgetCache({ ...widgetCache, ordered: e.target.checked})}
+                        checked={widgetCache.ordered}
                     /> Ordered
                         <br />
                         List Items
