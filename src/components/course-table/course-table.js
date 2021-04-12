@@ -19,6 +19,7 @@ export default class CourseTable
                             <td>Title</td>
                             <td className="d-none d-md-table-cell">Owned by</td>
                             <td className="d-none d-lg-table-cell">Last modified</td>
+                            <td className="d-none d-md-table-cell">Quizzes</td>
                             <td>
                             <i className="fas fa-2x fa-folder"></i>
                             <i className="fas fa-2x fa-sort-alpha-up"></i>

@@ -4,6 +4,8 @@ import CourseManager from "./components/course-manager.js";
 import CourseEditor from "./components/course-editor/course-editor.js";
 import {BrowserRouter, Route} from "react-router-dom";
 import Home from "./components/home";
+import QuizzesList from "./components/quizzes/quizzes-list.js";
+import Quiz from "./components/quizzes/quiz.js";
 
 function App() {
   return (
@@ -23,6 +25,12 @@ function App() {
         ]}
           exact={true}
           render={(props) => <CourseEditor history={props.history} />} />
+        <Route path="/courses/:courseId/quizzes" exact={true}>
+          <QuizzesList />
+        </Route>
+        <Route path="/courses/:courseId/quizzes/:quizId" exact={true}>
+          <Quiz />
+        </Route>
       </div>
     </BrowserRouter>
   );

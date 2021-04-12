@@ -7,6 +7,9 @@ const findQuizById = (qid) => {
     return fetch(`${QUIZZES_URL}/${qid}`)
         .then(response => response.json())
 }
-export default {
+
+const api = {
     findAllQuizzes, findQuizById
 }
+
+export default api
