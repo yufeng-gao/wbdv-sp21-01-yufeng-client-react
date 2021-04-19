@@ -1,4 +1,4 @@
-const SERVER_URL = "http://localhost:8080"
+const SERVER_URL = "https://cs5610-sp21-03-yufeng-java.herokuapp.com/"
 
 export const createWidget = (tid, widget) =>
     fetch(`${SERVER_URL}/api/topics/${tid}/widgets`, {
