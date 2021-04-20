@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from "react";
-import {Link, useParams} from "react-router-dom";
-import quizService from "../../services/quiz-service";
+import React, { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import QuizAttempts from "./quiz-attempts"
+import quizService from "../../services/quizzes-service";
 
 const QuizzesList = () => {
-    const {courseId} = useParams();
+    const { courseId } = useParams();
     const [quizzes, setQuizzes] = useState([])
     useEffect(() => {
         quizService.findAllQuizzes()
@@ -11,18 +12,20 @@ const QuizzesList = () => {
                 setQuizzes(quizzes)
             })
     }, [])
-    return(
+    return (
         <div>
             <h2>Quizzes</h2>
             <div className="list-group">
                 {
                     quizzes.map((quiz) => {
-                        return(
-                            <Link
-                                to={`/courses/${courseId}/quizzes/${quiz._id}`}
-                                className="list-group-item">
-                                {quiz.title}
-                            </Link>
+                        return (
+                            <div className="list-group-item">
+                                <Link
+                                    to={`/courses/${courseId}/quizzes/${quiz._id}`}>
+                                    {quiz.title}
+                                </Link>
+                                <QuizAttempts quizId={quiz._id} />
+                            </div>
                         )
                     })
                 }

@@ -1,8 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const MultipleChoiceQuestion = ({ question }) => {
+const MultipleChoiceQuestion = ({
+    question,
+    finalized,
+    gradedCallback
+}) => {
     const [graded, setGraded] = useState(false)
     const [answer, setAnswer] = useState(null)
+    useEffect(() => {
+        setGraded(finalized)
+    }, [finalized])
+    useEffect(() => {
+        if (answer != null){
+            gradedCallback(answer)
+        }
+    }, [answer])
     return (
         <div className="list-group-item">
             <h4>{question.question}
@@ -22,7 +34,7 @@ const MultipleChoiceQuestion = ({ question }) => {
                             ${(graded && question.correct == choice) ? 'list-group-item-success' : ''}
                             ${(graded && answer == choice && question.correct != choice) ? 'list-group-item-danger' : ''}`}>
                                 <input type="radio" name={question._id}
-                                    onClick={() => setAnswer(choice)}
+                                    onClick={() => {setAnswer(choice)}}
                                     disabled={graded} />
                                 {choice}
                                 {
@@ -40,7 +52,7 @@ const MultipleChoiceQuestion = ({ question }) => {
             </div>
             <div>Your answer: {`${answer == null ? '' : answer}`}</div>
             <button type="button" className="btn btn-success"
-                onClick={() => setGraded(true)}>Grade</button>
+                onClick={() => {setGraded(true)}}>Grade</button>
         </div>
     )
 }
